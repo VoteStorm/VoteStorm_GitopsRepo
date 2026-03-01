@@ -11,6 +11,8 @@ spec:
     targetRevision: 55.5.0
     helm:
       values: |
+        prometheus-node-exporter:
+          enabled: false
         grafana:
           service:
             type: ClusterIP
