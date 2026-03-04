@@ -22,6 +22,7 @@ spec:
             ingressClassName: nginx
             hosts:
               - name: chaos.34.64.241.165.nip.io
+                tls: false
   destination:
     server: https://kubernetes.default.svc
     namespace: chaos-mesh
