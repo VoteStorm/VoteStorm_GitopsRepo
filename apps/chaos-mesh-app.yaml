@@ -10,8 +10,8 @@ spec:
     repoURL: https://charts.chaos-mesh.org
     targetRevision: 2.6.3
     helm:
+      skipCrds: true
       values: |
-        installCRDs: false
         chaosDaemon:
           runtime: containerd
           socketPath: /run/containerd/containerd.sock
