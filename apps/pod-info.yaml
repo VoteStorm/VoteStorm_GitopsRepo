@@ -39,7 +39,7 @@ spec:
           enabled: true
           className: nginx
           hosts:
-            - host: podinfo.34.47.73.215.nip.io
+            - host: podinfo.34.64.241.165.nip.io
               paths:
                 - path: /
                   pathType: Prefix
