@@ -1,4 +1,4 @@
-replicaCount: 5
+replicaCount: 7
 hpa:
   enabled: true
   maxReplicas: 10
