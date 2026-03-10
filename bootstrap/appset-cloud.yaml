@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: votestorm-apps
+  name: chaoslab-apps
   namespace: argocd
 spec:
   goTemplate: true
@@ -44,7 +44,7 @@ spec:
                   targetRevision: "2.10.2"
                   sourceType: helm
 
-                - name: votestorm-base
+                - name: chaoslab-base
                   namespace: argocd
                   chart: ""
                   repoURL: https://github.com/VoteStorm/chaoslab-gitops.git
@@ -86,7 +86,7 @@ spec:
                     paths:
                       - path: /
                         pathType: Prefix
-        - repoURL: https://github.com/VoteStorm/VoteStorm_GitopsRepo.git
+        - repoURL: https://github.com/VoteStorm/chaoslab-gitops.git
           targetRevision: main
           ref: values
     {{- end }}
@@ -106,7 +106,7 @@ spec:
                 ingress:
                   hosts:
                     - grafana.{{ .domain }}
-        - repoURL: https://github.com/VoteStorm/VoteStorm_GitopsRepo.git
+        - repoURL: https://github.com/VoteStorm/chaoslab-gitops.git
           targetRevision: main
           ref: values
       syncPolicy:
@@ -131,7 +131,7 @@ spec:
                   hosts:
                     - name: chaos.{{ .domain }}
                       tls: false
-        - repoURL: https://github.com/VoteStorm/VoteStorm_GitopsRepo.git
+        - repoURL: https://github.com/VoteStorm/chaoslab-gitops.git
           targetRevision: main
           ref: values
     {{- end }}
@@ -145,7 +145,7 @@ spec:
           helm:
             valueFiles:
               - $values/values/apps/loki.yaml
-        - repoURL: https://github.com/VoteStorm/VoteStorm_GitopsRepo.git
+        - repoURL: https://github.com/VoteStorm/chaoslab-gitops.git
           targetRevision: main
           ref: values
     {{- end }}
@@ -155,5 +155,5 @@ spec:
       sources:
         - repoURL: {{ .repoURL }}
           targetRevision: {{ .targetRevision }}
-          path: charts/votestorm-base
+          path: charts/chaoslab-base
     {{- end }}
