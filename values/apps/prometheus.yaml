@@ -76,6 +76,8 @@ additionalPrometheusRulesMap:
           - alert: LowThroughput
             expr: |
               sum(rate(http_requests_total{namespace="podinfo"}[1m])) < 120
+              and
+              sum(rate(http_requests_total{namespace="podinfo"}[1m])) > 1
             for: 1m
             labels:
               severity: warning
